@@ -55,7 +55,7 @@ def test_first_scenario(set_up):
     trp = Tensor_site(driver)
     trp.move_to_more_details()
 
-@pytest.mark.ran(order=1)
+#@pytest.mark.ran(order=1)
 def test_second_scenario():
     options = webdriver.FirefoxOptions()
     options.add_argument("--width=1920")
