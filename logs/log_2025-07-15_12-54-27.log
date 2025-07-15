@@ -1,0 +1,88 @@
+
+-----
+Test: tests/first_script_test.py::test_first_scenario (call)
+Start time: 2025-07-15 12:54:33.880094
+Start name method: go_to_tensor_banner
+
+End time: 2025-07-15 12:54:38.745374
+End name method: go_to_tensor_banner
+URL: https://saby.ru/contacts
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_first_scenario (call)
+Start time: 2025-07-15 12:54:38.745374
+Start name method: go_to_site_tensor
+
+End time: 2025-07-15 12:54:38.939724
+End name method: go_to_site_tensor
+URL: https://saby.ru/contacts/76-yaroslavskaya-oblast?tab=clients
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_first_scenario (call)
+Start time: 2025-07-15 12:54:38.940721
+Start name method: move_to_more_details
+
+End time: 2025-07-15 12:54:48.366191
+End name method: move_to_more_details
+URL: https://tensor.ru/about
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_first_scenario (call)
+Start time: 2025-07-15 12:54:48.366191
+Start name method: check_URL_and_pics
+
+End time: 2025-07-15 12:54:53.451180
+End name method: check_URL_and_pics
+URL: https://tensor.ru/about
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_second_scenario (call)
+Start time: 2025-07-15 12:55:01.716059
+Start name method: go_to_tensor_banner
+
+End time: 2025-07-15 12:55:07.802698
+End name method: go_to_tensor_banner
+URL: https://saby.ru/contacts
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_second_scenario (call)
+Start time: 2025-07-15 12:55:07.802698
+Start name method: change_and_check_region
+
+End time: 2025-07-15 12:55:10.437883
+End name method: change_and_check_region
+URL: https://saby.ru/contacts/41-kamchatskij-kraj?tab=clients
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_third_scenario (call)
+Start time: 2025-07-15 12:55:18.878672
+Start name method: go_to_SABY_download
+
+End time: 2025-07-15 12:55:25.189561
+End name method: go_to_SABY_download
+URL: https://saby.ru/download
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_third_scenario (call)
+Start time: 2025-07-15 12:55:25.190558
+Start name method: click_link_for_download_saby
+
+End time: 2025-07-15 12:55:50.641925
+End name method: click_link_for_download_saby
+URL: https://saby.ru/download?tab=plugin&innerTab=default
+
+-----

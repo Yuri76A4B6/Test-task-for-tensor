@@ -1,3 +1,5 @@
+import os
+
 class Base():
 
     def __init__(self, driver):
@@ -54,6 +56,8 @@ class Base():
         assert get_url == result
         print("Проверка URL прошла успешно. Мы находимся на нужной странице!")
 
+    """Метод для сравнения размеров картинок"""
+
     def compare_pics_sizes(self, image1, image2, image3, image4):
         width1 = self.driver.execute_script("return arguments[0].naturalWidth", image1)
         height1 = self.driver.execute_script("return arguments[0].naturalHeight", image1)
@@ -73,6 +77,19 @@ class Base():
             print(f"Размеры изображений следующие: image1 {width1} x {height1};\n image2 {width2} x {height2};"
                   f" \n image3 {width3} x {height3};\n image4 {width4} x {height4}.")
 
-    """Метод скроллинга экрана"""
-    def scroll_down(self, x,y):
-        self.driver.execute_script(f"window.scrollTo({x}, {y});")
+    """Метод для проверки размера загруженного файла"""
+
+    def check_downloaded_file_size(self, locator):
+        project_absolute_way = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        download_dir = os.path.join(project_absolute_way, "downloads")
+        downloaded_filename = "saby-setup-web.exe"
+        file_path = os.path.join(download_dir, downloaded_filename)
+        file_size = os.path.getsize(file_path) / (1024 * 1024)
+        file_size_r = round(file_size, 2)
+        print(f"Файл {downloaded_filename} имеет размер = {file_size_r} МБ")
+        #print(type(file_size_r))
+        value_in_locator = locator.text
+        value_in_locator_digits = ''.join(a for a in value_in_locator if a.isdigit() or a == '.')
+        value_in_locator_digits_float = float(value_in_locator_digits)
+        assert value_in_locator_digits_float - file_size_r <= 0.05
+        print(f"Размер файла соответствует. Размер файла на компьютере = {file_size_r} МБ\n Размер файла на сайте = {value_in_locator_digits_float}")

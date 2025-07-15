@@ -8,8 +8,10 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from pages.about_company_page import Tensor_about
 from pages.contacts_page import Contacts_page
+from pages.download_saby_page import Download_Saby_Page
 from pages.main_page import Main_Page
 from pages.tensor_ru_page import Tensor_site
+import os
 
 @allure.description("Первый тест: test_first_scenario")
 def test_first_scenario(set_up):
@@ -74,3 +76,36 @@ def test_second_scenario():
 
     cp = Contacts_page(driver)
     cp.change_and_check_region()
+
+@allure.description("Третий тест: test_third_scenario")
+def test_third_scenario(set_up):
+    options = webdriver.FirefoxOptions()
+    options.add_argument("--width=1920")
+    options.add_argument("--height=1080")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--disable-popup-blocking")
+    options.add_argument("--disable-default-apps")
+    options.add_argument("--disable-infobars")
+    project_absolute_way = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    download_dir = os.path.join(project_absolute_way, "downloads")
+    options.set_preference("browser.download.folderList", 2)
+    options.set_preference("browser.download.dir", download_dir)
+    options.set_preference("browser.download.manager.showWhenStarting", False)
+    options.set_preference("dom.webdriver.enabled", False)
+    options.set_preference("useAutomationExtension", False)
+    options.set_preference("general.useragent.override",
+                           "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0")
+    options.set_preference("webdriver_assistant.enabled", False)
+    options.set_preference("webdriver_accept_untrusted_certs", True)
+    options.set_preference("webdriver_enable_native_events", True)
+    options.set_preference("browser.cache.disk.enable", False)
+    options.set_preference("browser.cache.memory.enable", False)
+    options.set_preference("browser.cache.offline.enable", False)
+    options.set_preference("network.http.use-cache", False)
+    driver = webdriver.Firefox(options=options, service=FirefoxService(GeckoDriverManager().install()))
+
+    mp = Main_Page(driver)
+    mp.go_to_SABY_download()
+
+    dsp = Download_Saby_Page(driver)
+    dsp.click_link_for_download_saby()

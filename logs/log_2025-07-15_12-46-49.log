@@ -1,0 +1,22 @@
+
+-----
+Test: first_script_test.py::test_third_scenario (call)
+Start time: 2025-07-15 12:46:55.828368
+Start name method: go_to_SABY_download
+
+End time: 2025-07-15 12:47:01.575738
+End name method: go_to_SABY_download
+URL: https://saby.ru/download
+
+-----
+
+-----
+Test: first_script_test.py::test_third_scenario (call)
+Start time: 2025-07-15 12:47:01.575738
+Start name method: click_link_for_download_saby
+
+End time: 2025-07-15 12:47:26.961930
+End name method: click_link_for_download_saby
+URL: https://saby.ru/download
+
+-----
