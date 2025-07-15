@@ -38,11 +38,10 @@ class Main_Page(Base):
 
     # METHODS
     def go_to_tensor_banner(self):
-        self.driver.get(self.url)
-        self.driver.maximize_window()
-        self.click_contacts()
-        self.click_more_offices()
-
-
-
-
+        with allure.step("Go to tensor banner"):
+            Logger.add_start_step(method="go_to_tensor_banner")
+            self.driver.get(self.url)
+            self.driver.maximize_window()
+            self.click_contacts()
+            self.click_more_offices()
+            Logger.add_end_step(url=self.driver.current_url, method="go_to_tensor_banner")

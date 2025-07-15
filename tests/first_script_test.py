@@ -6,24 +6,14 @@ from base.base_class import Base
 # from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
+from pages.about_company_page import Tensor_about
 from pages.contacts_page import Contacts_page
 from pages.main_page import Main_Page
 from pages.tensor_ru_page import Tensor_site
 
-
+@allure.description("Первый тест: test_first_scenario")
 def test_first_scenario(set_up):
     options = webdriver.FirefoxOptions()
-    # options.add_argument("--window-size=1920,1080")
-    # options.add_argument("--disable-extensions")
-    # options.add_argument("--proxy-server='direct://'")
-    # options.add_argument("--proxy-bypass-list=*")
-    # options.add_argument("--start-maximized")
-    # options.add_argument('--disable-gpu')
-    # options.add_argument('--disable-dev-shm-usage')
-    # options.add_argument('--no-sandbox')
-    # options.add_argument('--ignore-certificate-errors')
-    # options.add_argument('--disable-notifications')
-    # options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("--width=1920")
     options.add_argument("--height=1080")
     options.add_argument("--disable-extensions")
@@ -41,8 +31,6 @@ def test_first_scenario(set_up):
     options.set_preference("browser.cache.memory.enable", False)
     options.set_preference("browser.cache.offline.enable", False)
     options.set_preference("network.http.use-cache", False)
-    # options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    # options.add_experimental_option('useAutomationExtension', False)
     driver = webdriver.Firefox(options=options, service=FirefoxService(GeckoDriverManager().install()))
 
 
@@ -55,6 +43,10 @@ def test_first_scenario(set_up):
     trp = Tensor_site(driver)
     trp.move_to_more_details()
 
+    acp = Tensor_about(driver)
+    acp.check_URL_and_pics()
+
+@allure.description("Второй тест: test_second_scenario")
 #@pytest.mark.ran(order=1)
 def test_second_scenario():
     options = webdriver.FirefoxOptions()

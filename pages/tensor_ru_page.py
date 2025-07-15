@@ -1,5 +1,4 @@
 import time
-
 import allure
 from selenium.common import TimeoutException
 from selenium.webdriver import ActionChains
@@ -10,8 +9,6 @@ from base.base_class import Base
 from utilities.logger import Logger
 
 class Tensor_site(Base):
-
-    link_for_assert = "https://tensor.ru/about"
 
     #LOCATORS
     POWER_IN_PEOPLE = "//div/p[contains(text(),'Сила в людях')]"
@@ -29,12 +26,11 @@ class Tensor_site(Base):
     def get_more_under(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.MORE_UNDER_DEVELOPMENT)))
 
+    # ACTIONS
 
     def click_more_details(self):
-        #action = ActionChains(self.driver)
         move_to_power = self.get_power_in_people()
         self.driver.execute_script("arguments[0].scrollIntoView();", move_to_power)
-        #action.move_to_element(move_to_power).perform()
         print("Выполнено наведение на надпись 'Сила в людях'")
         self.get_more_details().click()
         print("Выполнен клик на 'Подробнее'")
@@ -42,7 +38,10 @@ class Tensor_site(Base):
     # METHODS
 
     def move_to_more_details(self):
-        self.driver.switch_to.window(self.driver.window_handles[1])
-        time.sleep(2)
-        print("Текущий URL:", self.driver.current_url)
-        self.click_more_details()
+        with allure.step("Move to more details"):
+            Logger.add_start_step(method="move_to_more_details")
+            self.driver.switch_to.window(self.driver.window_handles[1])
+            time.sleep(4)
+            print("Текущий URL:", self.driver.current_url)
+            self.click_more_details()
+            Logger.add_end_step(url=self.driver.current_url, method="move_to_more_details")

@@ -1,0 +1,66 @@
+
+-----
+Test: tests/first_script_test.py::test_first_scenario (call)
+Start time: 2025-07-15 09:43:27.122005
+Start name method: go_to_tensor_banner
+
+End time: 2025-07-15 09:43:33.373747
+End name method: go_to_tensor_banner
+URL: https://saby.ru/contacts
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_first_scenario (call)
+Start time: 2025-07-15 09:43:33.373747
+Start name method: go_to_site_tensor
+
+End time: 2025-07-15 09:43:33.622913
+End name method: go_to_site_tensor
+URL: https://saby.ru/contacts/76-yaroslavskaya-oblast?tab=clients
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_first_scenario (call)
+Start time: 2025-07-15 09:43:33.623910
+Start name method: move_to_more_details
+
+End time: 2025-07-15 09:43:43.857772
+End name method: move_to_more_details
+URL: https://tensor.ru/about
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_first_scenario (call)
+Start time: 2025-07-15 09:43:43.857772
+Start name method: check_URL_and_pics
+
+End time: 2025-07-15 09:43:48.925818
+End name method: check_URL_and_pics
+URL: https://tensor.ru/about
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_second_scenario (call)
+Start time: 2025-07-15 09:43:55.035383
+Start name method: go_to_tensor_banner
+
+End time: 2025-07-15 09:44:08.678743
+End name method: go_to_tensor_banner
+URL: https://saby.ru/contacts
+
+-----
+
+-----
+Test: tests/first_script_test.py::test_second_scenario (call)
+Start time: 2025-07-15 09:44:08.678743
+Start name method: change_and_check_region
+
+End time: 2025-07-15 09:44:11.319090
+End name method: change_and_check_region
+URL: https://saby.ru/contacts/41-kamchatskij-kraj?tab=clients
+
+-----

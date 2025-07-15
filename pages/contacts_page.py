@@ -56,18 +56,21 @@ class Contacts_page(Base):
 
     #METHODS
     def go_to_site_tensor(self):
-        self.click_tensor_banner()
+        with allure.step("Go to site tensor"):
+            Logger.add_start_step(method="go_to_site_tensor")
+            self.click_tensor_banner()
+            Logger.add_end_step(url=self.driver.current_url, method="go_to_site_tensor")
 
     def change_and_check_region(self):
-        self.click_location_76()
-        time.sleep(2)
-        self.click_change_region()
-        self.check_title_value("камчатский край")
-        location_el = self.get_location_41_title()
-        self.check_region(location_el, "Камчатский край")
-        self.check_info_in_URL()
-        check_partner_locator = self.get_partner_kamchatka()
-        self.check_info_about_partner(check_partner_locator)
-
-
-
+        with allure.step("Change and check region"):
+            Logger.add_start_step(method="change_and_check_region")
+            self.click_location_76()
+            time.sleep(2)
+            self.click_change_region()
+            self.check_title_value("камчатский край")
+            location_el = self.get_location_41_title()
+            self.check_region(location_el, "Камчатский край")
+            self.check_info_in_URL()
+            check_partner_locator = self.get_partner_kamchatka()
+            self.check_info_about_partner(check_partner_locator)
+            Logger.add_end_step(url=self.driver.current_url, method="change_and_check_region")

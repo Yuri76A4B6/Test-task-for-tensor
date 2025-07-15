@@ -1,10 +1,12 @@
 import datetime
 import os
 
-
 class Logger():
-    date_78 = str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-    file_name = f"C:\\Python projects\\Test_task\\logs" + date_78 + ".log"
+    logs_folder = "logs"
+    PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    LOG_FOLDER = os.path.join(PROJECT_ROOT, logs_folder)
+
+    file_name = os.path.join(LOG_FOLDER, f"log_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")
 
     @classmethod
     def write_log_to_file(cls, data: str):
